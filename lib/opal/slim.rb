@@ -15,8 +15,7 @@ module Opal
       <<-EOF
         require 'template'
         Template.new('#{file}') do |slim|
-          pp "#{compiled}"
-          #{compiled}
+          #{compiled.gsub '.freeze', ''}
         end
       EOF
     end
