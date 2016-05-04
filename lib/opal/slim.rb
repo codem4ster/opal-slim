@@ -13,7 +13,7 @@ module Opal
 
     def self.wrap compiled, file
       <<-EOF
-        Template.new('#{file}') do |slim|
+        OsmanTemplate.new('#{file}') do |slim|
           #{compiled}
         end
       EOF
