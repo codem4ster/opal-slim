@@ -64,5 +64,11 @@ module Opal
   end
 end
 
+if Sprockets.respond_to? :register_transformer
+  extra_args = [{mime_type: 'application/javascript', silence_deprecation: true}]
+else
+  extra_args = []
+end
+
 Opal.append_path File.expand_path('../../../opal', __FILE__).untaint
-Sprockets.register_engine '.slim', Opal::Slim::Processor
+Sprockets.register_engine '.slim', Opal::Slim::Processor, *extra_args
